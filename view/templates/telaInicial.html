@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+    <title>Bem vindo ao WebTheater</title>
+<body>
+    <!--começa -->
+    <div class= "header">
+
+        <div class="header_left">
+            <i id="menu" class="material-icons">menu</i>
+            <img src="{{ url_for('static', filename='photos/LogoGIF.gif') }}" alt="Logo">
+        </div>
+        
+        <div class="header__search">
+            <div class="search-box">     
+                <div class="form">
+                    <input type="text" class="search-bar" placeholder="Pesquisar">
+                    <button class="search-btn"><i class="material-icons">search</i> </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="header_icons">
+            <i class="material-icons">videocam</i>
+            <i class="material-icons">apps</i>
+            <i class="material-icons">notifications</i>
+            <i class="material-icons display-this">account_circles</i>
+        </div>
+
+    </div>
+    <!--termina-->
+
+    <div class="mainbody">
+        <!--barra lateral começa-->
+        <div class="sidebar">
+            <div class="sidebar_categories">
+                <div class="sidebar_category">
+                    <i class="material-icons">home</i>
+                    <span>Início</span>
+                </div>
+
+                <div class="sidebar_category">
+                    <i class="material-icons">local_fire_department</i>
+                    <span>Em alta</span>
+                </div>
+
+                <div class="sidebar_category">
+                    <i class="material-icons">subscriptions</i>
+                    <span>Inscrições</span>
+                </div>
+            </div>
+            <hr/>
+
+            <div class="sidebar_categories">
+                <div class="sidebar_category">
+                    <i class="material-icons">library_add</i>
+                    <span>Biblioteca</span>
+                </div>
+
+                <div class="sidebar_category">
+                    <i class="material-icons">category</i>
+                    <span>Categorias</span>
+                </div>
+
+                <div class="sidebar_category">
+                    <i class="material-icons">history</i>
+                    <span>Histórico</span>
+                </div>
+
+            </div>
+            <hr/>
+        </div>
+        <!-- Barra lateral termina-->
+        <!-- recomendados começa-->
+        <div class="videos">
+            <h1>Recomendados</h1>
+            <div class="videos_container">
+                <div class="video">
+                    {% if video_list|length > 0 %}
+                        {% for video in video_list %}
+                            <section>
+                                <div class="video_thumbnail">
+                                    <a href="videos/{{ video.id }}">
+                                    <img src= "{{ video.tumb }}" >
+                                </div>
+                                <div class="video_details">
+                                    <div class="author">
+                                        <img src="{{ video.canal.logocanal }}" alt="LogoCanal">
+                                        <h3>{{ video.canal.nome }}</h3>
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <h3>{{ video.nome }}</h3>
+                                    <span>{{ video.visualizacoes }} ∙ {{ video.dia }} atrás.</span></a>
+                                </div>
+                            </section>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- recomendados termina-->
+
+
+        <!-- jogos começa-->
+        <div class="videos">
+            <h1>Jogos</h1>
+            <div class="videos_container">
+                <div class="video">
+                    {% if video_list_j|length > 0 %}
+                        {% for video in video_list_j %}
+                            <section>
+                                <div class="video_thumbnail">
+                                    <a href="videos/{{ video.id }}">
+                                    <img src= "{{ video.tumb }}" >
+                                </div>
+                                <div class="video_details">
+                                    <div class="author">
+                                        <img src="{{ video.canal.logocanal }}" alt="LogoCanal">
+                                        <h3>{{ video.canal.nome }}</h3>
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <h3>{{ video.nome }}</h3>
+                                    <span>{{ video.visualizacoes }} ∙ {{ video.dia }} atrás.</span></a>
+                                </div>
+                            </section>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- jogos termina-->
+
+        <!-- react começa-->
+        <div class="videos">
+            <h1>React</h1>
+            <div class="videos_container">
+                <div class="video">
+                    {% if video_list_r|length > 0 %}
+                        {% for video in video_list_r %}
+                            <section>
+                                <div class="video_thumbnail">
+                                    <a href="videos/{{ video.id }}">
+                                    <img src= "{{ video.tumb }}" >
+                                </div>
+                                <div class="video_details">
+                                    <div class="author">
+                                        <img src="{{ video.canal.logocanal }}" alt="LogoCanal">
+                                        <h3>{{ video.canal.nome }}</h3>
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <h3>{{ video.nome }}</h3>
+                                    <span>{{ video.visualizacoes }} ∙ {{ video.dia }} atrás.</span></a>
+                                </div>
+                            </section>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- react termina-->
+
+        <!-- musica começa-->
+        <div class="videos">
+            <h1>Musica</h1>
+            <div class="videos_container">
+                <div class="video">
+                    {% if video_list_m|length > 0 %}
+                        {% for video in video_list_m %}
+                            <section>
+                                <div class="video_thumbnail">
+                                    <a href="videos/{{ video.id }}">
+                                    <img src= "{{ video.tumb }}" >
+                                </div>
+                                <div class="video_details">
+                                    <div class="author">
+                                        <img src="{{ video.canal.logocanal }}" alt="LogoCanal">
+                                        <h3>{{ video.canal.nome }}</h3>
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <h3>{{ video.nome }}</h3>
+                                    <span>{{ video.visualizacoes }} ∙ {{ video.dia }} atrás.</span></a>
+                                </div>
+                            </section>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- musica termina-->
+
+        <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>

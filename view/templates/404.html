@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro 404</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}" />
+</head>
+<body>
+    <div class= "centro">
+    <div class= "img">
+        <img src="{{ url_for('static', filename='photos/404.gif') }}" alt="img">
+    <div class="texto">
+        <h2>Página não encontrada</h2>
+        <h3>Desculpe, mas a página que você está procurando não existe.</h3>
+        <h4>Verifique se você digitou corretamente o endereço da página.</h4>
+        <div class="botao">
+            <a href="/">Voltar para a página inicial</a>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/video.css') }}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>{{ video.nome }}</title>
+</head>
+<body>  
+    <div class="video">
+    <iframe width="1262" height="719" src="{{ video.link }}" title="{{ video.nome }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="video-details">
+        <h2>{{ video.nome }}</h2>
+        <h4>{{ video.descricao }}</h4>
+            <div class="video-details-canal">
+                <div class="img">
+                <img src="{{ video.canal.logocanal }}" alt="LogoCanal">
+                </div>
+                <i class="text">{{ video.canal.nome }}</i>
+            <div class="video-details">
+                <div class="video-details-views">
+                    <i class="material-icons">thumb_up</i>
+                    <span>{{ video.likes }}</span>
+                    <i class="material-icons">thumb_down</i>
+                    <span>{{ video.deslikes }}</span>
+                    <i class="material-icons">visibility</i>
+                    <span>{{ video.visualizacoes }}</span>
+                    <i class="material-icons">calendar_month</i>
+                    <span>{{ video.dia }} atrás</span>
+                    </div>
+                </div>
+            </div>
+                <div class="video-container-comentarios">
+                    <i class="material-icons">comment</i>
+                    <span>Comentarios: </span> 
+                <div class = "video-comentarios">
+                    {% for comentario in comentarios %}
+                        <section>
+                            {{ comentario.nome }}:
+                            {{ comentario.comentario }}
+                            <br></br>
+                        </section>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
